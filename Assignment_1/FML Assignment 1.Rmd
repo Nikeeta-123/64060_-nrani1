@@ -1,5 +1,5 @@
 ---
-title: "FML 1"
+title: "FML Assignment 1"
 author: "Nikeeta Rani"
 date: "2024-02-04"
 output:
