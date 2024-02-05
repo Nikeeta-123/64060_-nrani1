@@ -1,0 +1,73 @@
+---
+title: "FML 1"
+author: "Nikeeta Rani"
+date: "2024-02-04"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r}
+data_source<-"https:/www.kaggle.com/datasets/saketk511/travel-dataset-guide-to-indias-must-see-places?resource=download"
+```
+
+```{r}
+library(readxl)
+```
+
+
+
+```{r}
+file_path <- "C:/Users/hp/Desktop/assignent/Top Indian Places to Visit.xlsx"
+```
+```{r}
+Top_Indian_Places_to_Visit <- read_excel(file_path)
+```
+
+
+#Descriptive Statistics for Categorical Variables 
+```{r}
+Category.Variable<-c("Zone","State","City","Name","Type","Airport with 50km Radius","Weekly Off","Significance","DSLR Allowed","Best Time to visit")
+```
+
+```{r}
+summary(Top_Indian_Places_to_Visit[Category.Variable])
+```
+```{r}
+table(Top_Indian_Places_to_Visit$Significance)
+```
+
+
+#Descriptive Statistics for Quantitative Variables
+```{r}
+Quantitative.Variable<-c("time needed to visit in hrs","Google review rating","Entrance Fee in INR","Number of google review in lakhs")
+```
+```{r}
+summary(Top_Indian_Places_to_Visit[Quantitative.Variable])
+```
+#Transformation of a variable(Transforming the class of variable i.e Entrance Fee in INR from numerical to character )
+```{r}
+class(Top_Indian_Places_to_Visit$`Entrance Fee in INR`)
+```
+```{r}
+Top_Indian_Places_to_Visit$`Entrance Fee in INR`<-as.character(Top_Indian_Places_to_Visit$`Entrance Fee in INR`)
+```
+```{r}
+class(Top_Indian_Places_to_Visit$`Entrance Fee in INR`)
+```
+```{r}
+sapply(Top_Indian_Places_to_Visit,class)
+```
+
+
+#Histogram of Google Review Rating
+```{r}
+hist(Top_Indian_Places_to_Visit$`Google review rating`, main = "Histogram of Google Review Rating", xlab = "Google Review Rating", col = "skyblue", border = "black")
+```
+
+#Scatterplot of Google Review Rating vs Entrance Fee
+```{r}
+plot(Top_Indian_Places_to_Visit$`Entrance Fee in INR`,main = "Scatterplot of Entrance Fee (in INR)",xlab = "Index",ylab = "Entrance Fee (INR)",col = "green", pch = 16)
+```
+
+
